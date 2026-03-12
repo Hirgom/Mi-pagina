@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Proyectos - Wilfer Carmona</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <style>
+        /* Estilos adicionales solo para projects.html */
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 30px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 25px;
+            background: white;
+        }
+        
+        .project-info h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .project-info p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .project-tags {
+            margin-bottom: 20px;
+        }
+        
+        .project-tags span {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #555;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .btn-project {
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .btn-project:hover {
+            background: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+            color: white;
+        }
+        
+        .btn-project i {
+            margin-right: 8px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 100px 0 40px;
+            }
+            
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .project-image {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Wilfer Carmona</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="projects.html">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-down">Mis Proyectos</h1>
+            <p data-aos="fade-up">Aquí puedes ver algunos de los proyectos en los que he trabajado como desarrollador junior</p>
+        </div>
+    </div>
+
+    <!-- Projects Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Proyecto 1 - Calculadora Web -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/LGyOJs02DmE/maxresdefault.jpg" alt="Calculadora Web">
+                        </div>
+                        <div class="project-info">
+                            <h4>Calculadora Web</h4>
+                            <p>Calculadora interactiva con operaciones básicas y diseño moderno. Desarrollada con HTML, CSS y JavaScript puro.</p>
+                            <div class="project-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>Responsive</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=LGyOJs02DmE" target="_blank" class="btn-project">
+                                <i class="fab fa-youtube"></i> Ver Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 - Lista de Tareas -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/h_E1rYAfUFk/maxresdefault.jpg" alt="Lista de Tareas">
+                        </div>
+                        <div class="project-info">
+                            <h4>Lista de Tareas</h4>
+                            <p>Aplicación para gestionar tareas diarias con funcionalidad CRUD. Usa localStorage para guardar los datos.</p>
+                            <div class="project-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>localStorage</span>
+                                <span>jQuery</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=h_E1rYAfUFk" target="_blank" class="btn-project">
+                                <i class="fab fa-youtube"></i> Ver Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 - Blog Personal -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/fKtnzj-gcag/maxresdefault.jpg" alt="Blog Personal">
+                        </div>
+                        <div class="project-info">
+                            <h4>Blog Personal</h4>
+                            <p>Blog desarrollado con Bootstrap y jQuery, con diseño responsive y sección de comentarios interactiva.</p>
+                            <div class="project-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>Bootstrap</span>
+                                <span>jQuery</span>
+                                <span>Responsive</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=fKtnzj-gcag" target="_blank" class="btn-project">
+                                <i class="fab fa-youtube"></i> Ver Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4 - Landing Page -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/SKDuHohpZqI/maxresdefault.jpg" alt="Landing Page">
+                        </div>
+                        <div class="project-info">
+                            <h4>Landing Page - Startup</h4>
+                            <p>Página de aterrizaje para una startup tecnológica. Diseño moderno con animaciones y llamados a la acción.</p>
+                            <div class="project-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>Bootstrap</span>
+                                <span>Animaciones</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=SKDuHohpZqI" target="_blank" class="btn-project">
+                                <i class="fab fa-youtube"></i> Ver Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5 - Sistema CRUD -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/vFnBF51Ed7w/maxresdefault.jpg" alt="CRUD JavaScript">
+                        </div>
+                        <div class="project-info">
+                            <h4>Sistema CRUD</h4>
+                            <p>Sistema de gestión de usuarios con operaciones Crear, Leer, Actualizar y Eliminar. Datos en localStorage.</p>
+                            <div class="project-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>JavaScript</span>
+                                <span>CRUD</span>
+                                <span>localStorage</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=vFnBF51Ed7w" target="_blank" class="btn-project">
+                                <i class="fab fa-youtube"></i> Ver Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6 - Portafolio Personal (CON LA NUEVA IMAGEN) -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portafolio Personal">
+                        </div>
+                        <div class="project-info">
+                            <h4>Portafolio Personal</h4>
+                            <p>Mi portafolio personal desarrollado con Bootstrap, jQuery y CSS personalizado. Totalmente responsive.</p>
+                            <div class="project-tags">
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>Bootstrap</span>
+                                <span>jQuery</span>
+                                <span>AOS</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=dqZPS1Ztxb8" target="_blank" class="btn-project">
+                                <i class="fab fa-youtube"></i> Ver Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 Wilfer Andrés Carmona Orrego. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white me-3"><i class="fab fa-github fa-2x"></i></a>
+                    <a href="#" class="text-white me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+        
+        console.log('🌟 Página de proyectos cargada correctamente');
+    </script>
+</body>
+</html>

@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilfer Carmona - Desarrollador Creativo</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/estilos.css">
+    
+    <style>
+        /* Estilos específicos */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.95);
+        }
+        
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+        
+        .nav-link {
+            color: #ffffff !important;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            right: -100px;
+            top: -100px;
+        }
+        
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        
+        .hero-title .typed-text {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .btn-resume {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-resume:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            color: white;
+        }
+        
+        /* Sección Sobre Mí */
+        .about-section {
+            padding: 100px 0;
+            background: #111111;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .section-title span {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .about-text {
+            color: #888;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff6b6b;
+        }
+        
+        .info-card i {
+            font-size: 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        
+        .info-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .info-card p {
+            color: #888;
+            margin-bottom: 0;
+        }
+        
+        /* Sección Habilidades */
+        .skills-section {
+            padding: 100px 0;
+            background: #0a0a0a;
+        }
+        
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-10px);
+            border-color: #4ecdc4;
+        }
+        
+        .skill-item i {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        
+        .skill-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .skill-item p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Sección Proyectos (mejorada) */
+        .projects-section {
+            padding: 100px 0;
+            background: #111111;
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #ff6b6b;
+        }
+        
+        .project-image {
+            position: relative;
+            overflow: hidden;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .project-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-number {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 0 0 20px 0;
+        }
+        
+        .project-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .project-content p {
+            color: #888;
+            margin-bottom: 15px;
+            flex: 1;
+            font-size: 0.95rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .project-tags span {
+            background: rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+        
+        .btn-video {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+        
+        .btn-video:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            color: white;
+        }
+        
+        .btn-video i {
+            margin-right: 6px;
+        }
+        
+        /* Estilo para tarjetas horizontales de GitHub */
+        .project-card.d-flex {
+            flex-direction: row !important;
+            align-items: center;
+            padding: 15px !important;
+        }
+        
+        .project-card.d-flex .project-image {
+            width: 80px;
+            height: 80px;
+            background: none;
+            margin-right: 15px;
+        }
+        
+        /* Sección Contacto */
+        .contact-section {
+            padding: 100px 0;
+            background: #0a0a0a;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail i {
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-right: 20px;
+            width: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #111111;
+            padding: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #ff6b6b;
+            transform: translateY(-5px);
+        }
+        
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .navbar-collapse {
+                background: #0a0a0a;
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 10px;
+            }
+            
+            .project-card.d-flex {
+                flex-direction: column !important;
+                text-align: center;
+            }
+            
+            .project-card.d-flex .project-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Wilfer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Sobre Mí</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section con efecto de escritura -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="hero-title">
+                        Hola, soy
+                        <span class="typed-text"></span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        La creatividad es mi pasión. Desarrollador web y diseñador 
+                        apasionado por experimentar con nuevas habilidades y creatividad. 
+                        Siempre buscando explorar y aprender nuevas tecnologías.
+                    </p>
+                    <a href="#contact" class="btn-resume">Contáctame</a>
+                </div>
+                <div class="col-lg-6 text-center" data-aos="fade-left">
+                    <!-- IMAGEN AVATAR.PNG -->
+                    <img src="img/Avatar.png" alt="Wilfer Carmona" class="img-fluid rounded-circle" style="max-width: 350px; border: 4px solid rgba(255,107,107,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                Sobre <span>Mí</span>
+            </h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <p class="about-text">
+                        Soy un desarrollador de software junior con sede en Medellín, Colombia. 
+                        Actualmente curso la asignatura Herramientas de Programación IV y 
+                        busco especializarme en el desarrollo front-end. Me encanta crear 
+                        experiencias web únicas y funcionales.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Ubicación</h4>
+                        <p>Medellín, Colombia</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>Wilfer.carmona788@pascualbravo.edu.co</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h4>Educación</h4>
+                        <p>Técnico en Desarrollo de Software</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>En Proceso</h4>
+                        <p>4er Semestre en Tecnología</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h4>Teléfono</h4>
+                        <p>3024094135</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">
+                Mis <span>Habilidades</span>
+            </h2>
+            <div class="row mt-5">
+                <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="100">
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <h4>HTML5</h4>
+                        <p>Estructura semántica y accesible</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="200">
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <h4>CSS3</h4>
+                        <p>Diseños modernos y responsive</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="300">
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <h4>JavaScript</h4>
+                        <p>Interactividad y dinamismo</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="400">
+                    <div class="skill-item">
+                        <i class="fab fa-bootstrap"></i>
+                        <h4>Bootstrap</h4>
+                        <p>Framework CSS profesional</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="500">
+                    <div class="skill-item">
+                        <i class="fab fa-jquery"></i>
+                        <h4>jQuery</h4>
+                        <p>Manipulación del DOM</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="600">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <h4>Git</h4>
+                        <p>Control de versiones</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="700">
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <h4>MySQL</h4>
+                        <p>Bases de datos relacionales</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="800">
+                    <div class="skill-item">
+                        <i class="fab fa-python"></i>
+                        <h4>Python</h4>
+                        <p>Programación backend</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PROYECTOS -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">
+                Proyectos <span>Académicos</span>
+            </h2>
+            <p class="text-center text-light mb-5" data-aos="fade-up">Documentos, código fuente y recursos de aprendizaje.</p>
+
+            <!-- GRUPO 1: DOCUMENTOS WORD -->
+            <h3 class="text-light mb-4" data-aos="fade-right"><i class="fas fa-file-word text-primary me-2"></i> Guías y Dashboard</h3>
+            <div class="row mb-5">
+                <!-- Documento 1: Explicación de la Base de datos -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.icons8.com/fluency/96/000000/microsoft-word-2019.png" alt="Documento Word">
+                        </div>
+                        <div class="project-content">
+                            <h4>Explicación BD</h4>
+                            <p>Creación de tablas: consola, desarrollador, género y videojuegos con procedimientos.</p>
+                            <div class="project-tags">
+                                <span>MySQL</span>
+                                <span>Procedimientos</span>
+                                <span>HeidiSQL</span>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1ije1iYRLZDV8grVOij_iMh-ThI0reiw1/edit?usp=sharing" target="_blank" class="btn-video" style="background: linear-gradient(45deg, #2b5797, #1e3c5c);">
+                                <i class="fas fa-download me-2"></i> Ver Documento
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Documento 2: GUIA DASHBOARD -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.icons8.com/fluency/96/000000/microsoft-word-2019.png" alt="Documento Word">
+                        </div>
+                        <div class="project-content">
+                            <h4>Dashboard - BD II</h4>
+                            <p>Guía para la creación de un Dashboard en Power BI con datos de SQL Server.</p>
+                            <div class="project-tags">
+                                <span>SQL Server</span>
+                                <span>Power BI</span>
+                                <span>Dashboard</span>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1vpNcDtY4SpNB9aGVM-wLL29AOy_ruHC8/edit?usp=sharing" target="_blank" class="btn-video" style="background: linear-gradient(45deg, #2b5797, #1e3c5c);">
+                                <i class="fas fa-download me-2"></i> Ver Documento
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Documento 3: Mineria de datos ejercicios -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.icons8.com/fluency/96/000000/microsoft-word-2019.png" alt="Documento Word">
+                        </div>
+                        <div class="project-content">
+                            <h4>Minería de Datos</h4>
+                            <p>Ejercicios de segmentación y análisis con SQL en la tabla 'clientes'.</p>
+                            <div class="project-tags">
+                                <span>SQL</span>
+                                <span>Data Mining</span>
+                                <span>Consultas</span>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1CMM9Ns33_oZoU3n31ALiAX3ShfP1kL48/edit?usp=sharing" target="_blank" class="btn-video" style="background: linear-gradient(45deg, #2b5797, #1e3c5c);">
+                                <i class="fas fa-download me-2"></i> Ver Documento
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRUPO 2: PROYECTOS GITHUB -->
+            <h3 class="text-light mb-4" data-aos="fade-right"><i class="fab fa-github me-2"></i> Repositorios de Código</h3>
+            <div class="row mb-5">
+                <!-- GitHub 1: WebApplication1 -->
+                <div class="col-lg-4" data-aos="flip-left" data-aos-delay="50">
+                    <div class="project-card d-flex flex-row align-items-center p-3">
+                        <div class="project-image">
+                            <i class="fab fa-github fa-4x text-white"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h4>WebApplication1</h4>
+                            <p class="mb-2">Aplicación web ASP.NET</p>
+                            <div class="project-tags mb-2">
+                                <span>ASP.NET</span>
+                                <span>C#</span>
+                                <span>Web</span>
+                            </div>
+                            <a href="https://github.com/Hirgom/WebApplication1" target="_blank" class="btn-video" style="background: #24292e;">
+                                <i class="fab fa-github me-2"></i> Ver en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- GitHub 2: ThreeTierProject -->
+                <div class="col-lg-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="project-card d-flex flex-row align-items-center p-3">
+                        <div class="project-image">
+                            <i class="fab fa-github fa-4x text-white"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h4>ThreeTierProject</h4>
+                            <p class="mb-2">Arquitectura por capas en .NET</p>
+                            <div class="project-tags mb-2">
+                                <span>C#</span>
+                                <span>.NET</span>
+                                <span>Capas</span>
+                            </div>
+                            <a href="https://github.com/Hirgom/ThreeTierProject" target="_blank" class="btn-video" style="background: #24292e;">
+                                <i class="fab fa-github me-2"></i> Ver en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- GitHub 3: CRUD -->
+                <div class="col-lg-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="project-card d-flex flex-row align-items-center p-3">
+                        <div class="project-image">
+                            <i class="fab fa-github fa-4x text-white"></i>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h4>CRUD</h4>
+                            <p class="mb-2">Operaciones básicas con base de datos</p>
+                            <div class="project-tags mb-2">
+                                <span>C#</span>
+                                <span>SQL</span>
+                                <span>CRUD</span>
+                            </div>
+                            <a href="https://github.com/Hirgom/CRUD" target="_blank" class="btn-video" style="background: #24292e;">
+                                <i class="fab fa-github me-2"></i> Ver en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRUPO 3: VIDEOS DE APOYO -->
+            <h3 class="text-light mb-4" data-aos="fade-right"><i class="fab fa-youtube text-danger me-2"></i> Videos de Apoyo - Aprendizaje</h3>
+            <div class="row">
+                <!-- Video 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/LGyOJs02DmE/maxresdefault.jpg" alt="Video Calculadora">
+                        </div>
+                        <div class="project-content">
+                            <h4>Calculadora Web</h4>
+                            <p>Tutorial para crear una calculadora interactiva.</p>
+                            <div class="project-tags"><span>JavaScript</span><span>HTML</span><span>CSS</span></div>
+                            <a href="https://www.youtube.com/watch?v=LGyOJs02DmE" target="_blank" class="btn-video"><i class="fab fa-youtube"></i> Ver Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/h_E1rYAfUFk/maxresdefault.jpg" alt="Video Lista Tareas">
+                        </div>
+                        <div class="project-content">
+                            <h4>Lista de Tareas</h4>
+                            <p>Aplicación CRUD con localStorage.</p>
+                            <div class="project-tags"><span>JavaScript</span><span>localStorage</span></div>
+                            <a href="https://www.youtube.com/watch?v=h_E1rYAfUFk" target="_blank" class="btn-video"><i class="fab fa-youtube"></i> Ver Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/fKtnzj-gcag/maxresdefault.jpg" alt="Video Blog">
+                        </div>
+                        <div class="project-content">
+                            <h4>Blog Personal</h4>
+                            <p>Blog con Bootstrap y jQuery.</p>
+                            <div class="project-tags"><span>Bootstrap</span><span>jQuery</span></div>
+                            <a href="https://www.youtube.com/watch?v=fKtnzj-gcag" target="_blank" class="btn-video"><i class="fab fa-youtube"></i> Ver Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 4 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/SKDuHohpZqI/maxresdefault.jpg" alt="Video Landing">
+                        </div>
+                        <div class="project-content">
+                            <h4>Landing Page</h4>
+                            <p>Diseño moderno para startup.</p>
+                            <div class="project-tags"><span>HTML5</span><span>CSS3</span><span>Animaciones</span></div>
+                            <a href="https://www.youtube.com/watch?v=SKDuHohpZqI" target="_blank" class="btn-video"><i class="fab fa-youtube"></i> Ver Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 5 -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://img.youtube.com/vi/vFnBF51Ed7w/maxresdefault.jpg" alt="Video CRUD">
+                        </div>
+                        <div class="project-content">
+                            <h4>Sistema CRUD</h4>
+                            <p>Gestión de usuarios con JavaScript.</p>
+                            <div class="project-tags"><span>JavaScript</span><span>CRUD</span></div>
+                            <a href="https://www.youtube.com/watch?v=vFnBF51Ed7w" target="_blank" class="btn-video"><i class="fab fa-youtube"></i> Ver Video</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Video 6 - CON IMAGEN DE COMPUTADORA -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Portafolio Personal">
+                        </div>
+                        <div class="project-content">
+                            <h4>Portafolio Personal</h4>
+                            <p>Ejemplo de portafolio profesional.</p>
+                            <div class="project-tags">
+                                <span>Bootstrap</span>
+                                <span>jQuery</span>
+                                <span>AOS</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=dqZPS1Ztxb8" target="_blank" class="btn-video">
+                                <i class="fab fa-youtube"></i> Ver Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">
+                <span>Contacto</span>
+            </h2>
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="contact-info">
+                        <h3>¿Tienes un proyecto?</h3>
+                        <p>Estoy siempre interesado en escuchar nuevas ideas y oportunidades.</p>
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Medellín, Colombia</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span>Wilfer.carmona788@pascualbravo.edu.co</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <span>3024094135</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (vacío) -->
+    <footer>
+        <!-- Footer vacío - sin copyright -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    
+    <script>
+        // Inicializar AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Navbar scroll effect
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('scrolled');
+            } else {
+                $('.navbar').removeClass('scrolled');
+            }
+        });
+
+        // Smooth scroll para los enlaces internos
+        $('a[href^="#"]').on('click', function(event) {
+            var target = $(this.getAttribute('href'));
+            if (target.length) {
+                event.preventDefault();
+                $('html, body').animate({
+                    scrollTop: target.offset().top - 70
+                }, 1000);
+            }
+        });
+
+        // Inicializar Typed.js para el efecto de escritura
+        var typed = new Typed('.typed-text', {
+            strings: [
+                '<span>Wilfer Carmona</span>',
+                
+            ],
+            typeSpeed: 100,
+            backSpeed: 60,
+            backDelay: 1500,
+            startDelay: 500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|',
+            contentType: 'html'
+        });
+
+        console.log('🌟 Portafolio de Wilfer Carmona cargado correctamente');
+    </script>
+</body>
+</html>
